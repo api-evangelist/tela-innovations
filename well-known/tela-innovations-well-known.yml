@@ -1,0 +1,179 @@
+generated: '2026-08-29'
+method: probed
+source: https://www.tela-inc.com/
+name: Tela Innovations well-known + contract discovery probe
+description: >-
+  Negative probe record for Tela Innovations, Inc. The company's registered corporate host,
+  www.tela-inc.com, still resolves in DNS but no longer runs a web service: TCP connections to
+  both port 80 and port 443 are refused/time out, so every /.well-known/ path and every contract
+  path is unreachable rather than 404. No WellKnown, SecurityTxt, AgentCard, LLMsTxt or OpenAPI
+  pointer is emitted from this probe, and none should ever be emitted from it in a later round.
+  This is a recorded absence, not a gap in the pass.
+
+host_status:
+  host: www.tela-inc.com
+  controlled_by_provider: true
+  disposition: dns-only-no-web-service
+  a_record: 129.121.136.207
+  ports:
+  - port: 80
+    state: closed
+  - port: 443
+    state: closed
+  nameservers:
+  - ns1.no-ip.com
+  - ns2.no-ip.com
+  - ns3.no-ip.com
+  - ns4.no-ip.com
+  - ns5.no-ip.com
+  registrar: Vitalwerks Internet Solutions, LLC / No-IP.com
+  domain_created: '2005-12-20'
+  domain_updated: '2022-12-01'
+  domain_expires: '2026-12-20'
+  mx:
+  - 5 telainc-com01b.mail.eo.outlook.com
+  note: >-
+    The domain registration is still active and mail is still routed to Microsoft 365, so the
+    entity has not released the name — but the web presence is gone. The last Internet Archive
+    capture of www.tela-inc.com that returned content predates 2022; the 2022-01-21 capture is
+    already an upstream error page ("Error. Page cannot be displayed"), and there are no captures
+    after it.
+
+hosts:
+- host: www.tela-inc.com
+  documents:
+  - path: /.well-known/security.txt
+    status: null
+    result: unreachable
+    file: null
+    note: connection timed out (port 443 closed)
+  - path: /.well-known/openid-configuration
+    status: null
+    result: unreachable
+    file: null
+    note: connection timed out (port 443 closed)
+  - path: /.well-known/oauth-authorization-server
+    status: null
+    result: unreachable
+    file: null
+    note: connection timed out (port 443 closed)
+  - path: /.well-known/api-catalog
+    status: null
+    result: unreachable
+    file: null
+    note: connection timed out (port 443 closed)
+  - path: /.well-known/ai-plugin.json
+    status: null
+    result: unreachable
+    file: null
+    note: connection timed out (port 443 closed)
+  - path: /.well-known/agent-card.json
+    status: null
+    result: unreachable
+    file: null
+    note: connection timed out (port 443 closed); no AgentCard pointer emitted
+  - path: /.well-known/agent.json
+    status: null
+    result: unreachable
+    file: null
+    note: legacy pre-0.3 path; connection timed out (port 443 closed)
+
+contract_discovery:
+  openapi:
+  - url: https://www.tela-inc.com/openapi.json
+    status: null
+    parses_as_openapi: false
+    result: unreachable
+  - url: https://www.tela-inc.com/swagger.json
+    status: null
+    parses_as_openapi: false
+    result: unreachable
+  graphql: []
+  mcp: []
+  a2a_agent_card: []
+  wsdl: []
+  grpc: []
+  api_hosts_resolved:
+  - host: api.tela-inc.com
+    dns: NXDOMAIN
+    status: null
+  - host: docs.tela-inc.com
+    dns: NXDOMAIN
+    status: null
+  - host: developer.tela-inc.com
+    dns: NXDOMAIN
+    status: null
+  - host: developers.tela-inc.com
+    dns: NXDOMAIN
+    status: null
+  - host: app.tela-inc.com
+    dns: NXDOMAIN
+    status: null
+  - host: support.tela-inc.com
+    dns: NXDOMAIN
+    status: null
+  note: >-
+    STEP 0b contract discovery cannot be completed against a host that accepts no TCP
+    connections. There is no docs host, no console host and no API host in DNS to fall back to,
+    so the union of REST / GraphQL / MCP / A2A probes is empty by unreachability, not by 404.
+
+llms_txt:
+  url: https://www.tela-inc.com/llms.txt
+  status: null
+  result: unreachable
+  note: No LLMsTxt pointer emitted.
+
+other_surfaces:
+- what: GitHub organization
+  url: https://api.github.com/orgs/tela-inc
+  status: 404
+  result: miss
+- what: GitHub organization
+  url: https://api.github.com/orgs/tela-innovations
+  status: 404
+  result: miss
+- what: GitHub organization
+  url: https://api.github.com/orgs/telainnovations
+  status: 404
+  result: miss
+- what: GitHub user/org search "tela innovations"
+  url: https://api.github.com/search/users?q=tela+innovations
+  status: 200
+  result: miss
+  note: total_count 0.
+- what: npm registry
+  url: https://registry.npmjs.org/tela-inc
+  status: 404
+  result: miss
+- what: npm registry search "tela-innovations"
+  url: https://registry.npmjs.org/-/v1/search?text=tela-innovations
+  status: 200
+  result: miss
+  note: >-
+    The nearest match, @meistrari/tela-sdk-js, is the SDK for Tela (tela.com), an unrelated AI
+    workflow company. Not first-party to Tela Innovations, Inc.
+- what: PyPI
+  url: https://pypi.org/pypi/tela-innovations/json
+  status: 404
+  result: miss
+- what: Forge Global secondary-market listing (the harvest source)
+  url: https://forgeglobal.com/tela-innovations_stock/
+  status: 403
+  result: blocked
+  note: >-
+    Forge returns a Cloudflare interstitial to non-browser clients. It is a secondary-market
+    share listing, not a company site, and is deliberately not wired as a Website pointer
+    (see roadmap#56).
+- what: Internet Archive CDX for tela-inc.com
+  url: http://web.archive.org/cdx/search/cdx?url=tela-inc.com
+  status: 200
+  result: hit
+  note: >-
+    Last captures 2020-2022; the final capture (2022-01-21) already returns an upstream error
+    page. No captures after January 2022.
+
+conclusion: >-
+  Tela Innovations has no reachable web presence and no API surface to enrich. Its products were
+  licensed standard-cell libraries, DFM/layout-optimization EDA software and design services,
+  delivered under commercial agreement to foundries and chip designers — never as a public web
+  API. Any future round should re-read host_status before re-probing tela-inc.com.

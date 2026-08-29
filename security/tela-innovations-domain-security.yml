@@ -1,0 +1,90 @@
+generated: '2026-08-29'
+method: probed
+source: tela-inc.com (DNS + TCP + WHOIS probe, 2026-08-29)
+name: Tela Innovations domain security posture
+description: >-
+  Domain and transport security posture for the one host Tela Innovations, Inc. still holds,
+  tela-inc.com. Absence of a record is valid data and is recorded as such. Note that this domain
+  no longer serves a website: TLS could not be assessed because port 443 does not accept
+  connections.
+
+hosts:
+- host: tela-inc.com
+  registrable_domain: tela-inc.com
+  a_record: 129.121.136.207
+  https:
+    reachable: false
+    port_443: closed
+    tls_version: null
+    certificate_expires: null
+    note: >-
+      TCP connection to 129.121.136.207:443 is refused/times out, so no TLS handshake is
+      possible and no certificate could be read.
+  http:
+    reachable: false
+    port_80: closed
+  hsts:
+    present: false
+    max_age: null
+    note: Not assessable — no HTTP response to read headers from.
+- host: www.tela-inc.com
+  registrable_domain: tela-inc.com
+  a_record: 129.121.136.207
+  https:
+    reachable: false
+    port_443: closed
+    tls_version: null
+    certificate_expires: null
+  http:
+    reachable: false
+    port_80: closed
+  hsts:
+    present: false
+    max_age: null
+
+dns:
+  registrable_domain: tela-inc.com
+  nameservers:
+  - ns1.no-ip.com
+  - ns2.no-ip.com
+  - ns3.no-ip.com
+  - ns4.no-ip.com
+  - ns5.no-ip.com
+  dnssec:
+    present: false
+    dnskey_records: 0
+  caa:
+    present: false
+    records: []
+    note: No CAA record — any public CA may issue for this domain.
+  spf:
+    present: false
+    records: []
+    note: >-
+      No TXT record of any kind is published at the apex, so there is no SPF policy. Mail is
+      routed to Microsoft 365 (MX 5 telainc-com01b.mail.eo.outlook.com) with no sender
+      authentication published.
+  dmarc:
+    present: false
+    record: null
+    policy: null
+    note: No _dmarc.tela-inc.com TXT record.
+  mx:
+  - preference: 5
+    exchange: telainc-com01b.mail.eo.outlook.com
+
+registration:
+  registrar: Vitalwerks Internet Solutions, LLC / No-IP.com
+  created: '2005-12-20'
+  updated: '2022-12-01'
+  expires: '2026-12-20'
+  status:
+  - clientTransferProhibited
+
+findings:
+- The domain is registered and renewed, and mail still routes to Microsoft 365, so the name has
+  not been abandoned or reassigned to a third party.
+- No web service runs on it. Both port 80 and port 443 refuse connections, so there is no site,
+  no docs, no developer portal and no TLS posture to assess.
+- No SPF, no DMARC, no CAA and no DNSSEC are published, which is a live risk for a domain that
+  still receives mail — the name remains spoofable.
