@@ -35,6 +35,18 @@ x-domain-note: >-
   and still routes mail to Microsoft 365, but no web service answers on port 80 or 443. There is
   no docs, developer, api or app subdomain in DNS. See well-known/tela-innovations-well-known.yml
   and security/tela-innovations-domain-security.yml for the probe records.
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - security
+  generated: '2026-09-02'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-08-29'
 modified: '2026-08-29'
